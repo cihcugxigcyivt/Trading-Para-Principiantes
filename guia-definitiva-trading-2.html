@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guia Definitiva de Trading</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#07080e;--s1:#0d0e18;--s2:#13141f;--s3:#1a1b28;--b:#22243a;--b2:#2e3050;--g:#00e87a;--bl:#00b8ff;--o:#ff6b35;--gold:#ffc84a;--pur:#b06aff;--pink:#ff4a8a;--teal:#00e8c8;--t:#dde0f5;--m:#6b6e95;--m2:#9599c8}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--t);font-family:'DM Sans',sans-serif;font-size:14px;line-height:1.65}
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 700px 400px at 5% 10%,#00e87a06,transparent),radial-gradient(ellipse 500px 400px at 95% 90%,#00b8ff05,transparent),radial-gradient(ellipse 400px 300px at 50% 50%,#b06aff03,transparent);pointer-events:none;z-index:0}
+.wrap{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:0 18px 120px}
+nav{position:sticky;top:0;z-index:100;background:rgba(7,8,14,.96);backdrop-filter:blur(14px);border-bottom:1px solid var(--b)}
+.nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:4px;overflow-x:auto;padding:10px 18px;scrollbar-width:none}
+.nav-inner::-webkit-scrollbar{display:none}
+.nbtn{flex-shrink:0;padding:6px 13px;border-radius:20px;font-size:11px;font-weight:600;cursor:pointer;border:1px solid var(--b);background:transparent;color:var(--m2);transition:all .2s;white-space:nowrap;font-family:'DM Sans',sans-serif}
+.nbtn:hover{color:var(--t);border-color:var(--b2)}
+.n0{background:linear-gradient(135deg,var(--g),var(--bl))!important;color:#000!important;border:none!important}
+.n1{background:var(--g)!important;color:#000!important;border:none!important}
+.n2{background:var(--bl)!important;color:#000!important;border:none!important}
+.n3{background:var(--o)!important;color:#000!important;border:none!important}
+.n4{background:var(--gold)!important;color:#000!important;border:none!important}
+.n5{background:var(--pur)!important;color:#fff!important;border:none!important}
+.n6{background:var(--pink)!important;color:#fff!important;border:none!important}
+.n7{background:var(--teal)!important;color:#000!important;border:none!important}
+.n8{background:#ff8a00!important;color:#000!important;border:none!important}
+.n9{background:#e0e0ff!important;color:#000!important;border:none!important}
+header{text-align:center;padding:68px 0 54px}
+.chip{display:inline-block;background:#00e87a12;border:1px solid #00e87a35;border-radius:20px;padding:5px 16px;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--g);margin-bottom:18px}
+h1{font-family:'Syne',sans-serif;font-size:clamp(32px,6vw,62px);font-weight:800;line-height:1.05;background:linear-gradient(135deg,#fff 0%,#90f0c0 30%,#60d0ff 65%,#c060ff 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:12px}
+.hsub{color:var(--m2);font-size:15px;max-width:560px;margin:0 auto 24px;font-weight:300}
+.htags{display:flex;flex-wrap:wrap;justify-content:center;gap:7px}
+.htag{background:var(--s2);border:1px solid var(--b);border-radius:6px;padding:4px 11px;font-size:11px;color:var(--m2)}
+.sec{margin-bottom:60px;scroll-margin-top:58px}
+.slabel{display:flex;align-items:center;gap:12px;font-family:'Syne',sans-serif;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:18px}
+.slabel::after{content:'';flex:1;height:1px;opacity:.35;background:currentColor}
+.sl1{color:var(--g)}.sl2{color:var(--bl)}.sl3{color:var(--o)}.sl4{color:var(--gold)}.sl5{color:var(--pur)}.sl6{color:var(--pink)}.sl7{color:var(--teal)}.sl8{color:#ff8a00}.sl9{color:#c0c0ff}
+.eb{border-radius:16px;padding:22px 26px;margin-bottom:18px;border:1px solid}
+.e1{background:linear-gradient(135deg,#00e87a08,#00e87a16);border-color:#00e87a30}
+.e2{background:linear-gradient(135deg,#00b8ff08,#00b8ff16);border-color:#00b8ff30}
+.e3{background:linear-gradient(135deg,#ff6b3508,#ff6b3516);border-color:#ff6b3530}
+.e4{background:linear-gradient(135deg,#ffc84a08,#ffc84a16);border-color:#ffc84a30}
+.e5{background:linear-gradient(135deg,#b06aff08,#b06aff16);border-color:#b06aff30}
+.e6{background:linear-gradient(135deg,#ff4a8a08,#ff4a8a16);border-color:#ff4a8a30}
+.e7{background:linear-gradient(135deg,#00e8c808,#00e8c816);border-color:#00e8c830}
+.eb h2{font-family:'Syne',sans-serif;font-size:19px;font-weight:800;margin-bottom:6px}
+.eb p{font-size:13px;color:var(--m2);line-height:1.6}
+.emeta{display:flex;gap:10px;margin-top:10px;flex-wrap:wrap}
+.etag{font-size:11px;font-weight:600;padding:3px 10px;border-radius:10px;background:rgba(255,255,255,.07);color:var(--m2)}
+.prompt-box{background:var(--s1);border:1px solid var(--b2);border-left:3px solid var(--g);border-radius:14px;padding:22px 24px}
+.pt{font-size:13px;line-height:1.85;color:#9a9dc8;font-style:italic}
+.pt strong{color:var(--t);font-style:normal}
+.cgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.card{background:var(--s1);border:1px solid var(--b);border-radius:13px;padding:18px;transition:all .2s}
+.card:hover{transform:translateY(-2px);border-color:var(--b2)}
+.bdg{display:inline-block;font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:3px 8px;border-radius:4px;margin-bottom:9px;border:1px solid}
+.bg{background:#00e87a14;color:var(--g);border-color:#00e87a30}
+.bb{background:#00b8ff14;color:var(--bl);border-color:#00b8ff30}
+.bo{background:#ff6b3514;color:var(--o);border-color:#ff6b3530}
+.bgold{background:#ffc84a14;color:var(--gold);border-color:#ffc84a30}
+.bpur{background:#b06aff14;color:var(--pur);border-color:#b06aff30}
+.bpink{background:#ff4a8a14;color:var(--pink);border-color:#ff4a8a30}
+.bteal{background:#00e8c814;color:var(--teal);border-color:#00e8c830}
+.card h3{font-family:'Syne',sans-serif;font-size:14px;font-weight:700;margin-bottom:5px}
+.card p{font-size:12px;color:var(--m2);margin-bottom:12px;line-height:1.5}
+.cl{display:inline-flex;align-items:center;gap:4px;font-size:11.5px;font-weight:500;text-decoration:none;margin-right:8px}
+.cl:hover{text-decoration:underline}
+.lg{color:var(--g)}.lb{color:var(--bl)}.lo{color:var(--o)}.lgold{color:var(--gold)}.lpur{color:var(--pur)}.lpink{color:var(--pink)}.lteal{color:var(--teal)}
+.sec-sub{font-family:'Syne',sans-serif;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin:18px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--b)}
+.mes{border:1px solid var(--b);border-radius:15px;overflow:hidden;margin-bottom:12px}
+.mh{padding:16px 22px;display:flex;align-items:center;gap:14px;cursor:pointer;user-select:none;transition:filter .2s;border-bottom:1px solid var(--b)}
+.mh:hover{filter:brightness(1.12)}
+.mh1{background:linear-gradient(90deg,#00e87a14,transparent)}
+.mh2{background:linear-gradient(90deg,#00b8ff14,transparent)}
+.mh3{background:linear-gradient(90deg,#ff6b3514,transparent)}
+.mh4{background:linear-gradient(90deg,#ffc84a14,transparent)}
+.mh5{background:linear-gradient(90deg,#b06aff14,transparent)}
+.mh6{background:linear-gradient(90deg,#ff4a8a14,transparent)}
+.mh7{background:linear-gradient(90deg,#00e8c814,transparent)}
+.mn{font-family:'Syne',sans-serif;font-size:40px;font-weight:800;opacity:.18;line-height:1;min-width:56px}
+.mi{flex:1}.mi h2{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;margin-bottom:1px}
+.mi p{font-size:11.5px;color:var(--m)}
+.tog{font-size:17px;color:var(--m);transition:transform .3s}
+.mes.open .tog{transform:rotate(180deg)}
+.mb{display:none}.mes.open .mb{display:block}
+.sem{border-bottom:1px solid var(--b);padding:18px 22px}.sem:last-child{border-bottom:none}
+.sh{display:flex;align-items:center;gap:9px;margin-bottom:9px}
+.sn{font-family:'Syne',sans-serif;font-size:9px;font-weight:800;padding:3px 8px;border-radius:4px;letter-spacing:1px}
+.sg{background:var(--g);color:#000}.sbl{background:var(--bl);color:#000}.so{background:var(--o);color:#000}
+.sgold{background:var(--gold);color:#000}.spur{background:var(--pur);color:#fff}.spink{background:var(--pink);color:#fff}.steal{background:var(--teal);color:#000}
+.st{font-family:'Syne',sans-serif;font-size:13px;font-weight:700}
+.sob{font-size:12px;color:var(--m2);background:var(--s2);border-left:2px solid;padding:6px 11px;border-radius:0 6px 6px 0;margin-bottom:12px}
+.sob1{border-color:var(--g)}.sob2{border-color:var(--bl)}.sob3{border-color:var(--o)}.sob4{border-color:var(--gold)}.sob5{border-color:var(--pur)}.sob6{border-color:var(--pink)}.sob7{border-color:var(--teal)}
+.dt{width:100%;border-collapse:collapse}
+.dt tr{border-bottom:1px solid var(--b)}.dt tr:last-child{border-bottom:none}
+.dt td{padding:10px 7px;vertical-align:top;font-size:13px}
+.td{width:74px;font-size:9.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--m);padding-right:10px;padding-top:12px;white-space:nowrap}
+.tc{border-left:1px solid var(--b);padding-left:13px}
+.at{font-weight:500;color:var(--t);margin-bottom:2px;font-size:13px}
+.ad{font-size:11.5px;color:var(--m2);margin-bottom:4px;line-height:1.5}
+.al{display:inline-flex;align-items:center;gap:3px;font-size:11px;color:var(--bl);text-decoration:none;font-weight:500;margin-right:8px}
+.al:hover{color:var(--g);text-decoration:underline}
+.aej{background:#ffc84a0c;border:1px solid #ffc84a22;border-radius:6px;padding:7px 11px;font-size:11.5px;color:#c8a050;margin-top:4px;line-height:1.6}
+.ad2{font-size:11.5px;color:var(--m);font-style:italic}
+.tip{background:#b06aff0c;border:1px solid #b06aff22;border-radius:6px;padding:7px 11px;font-size:11.5px;color:#c090ff;margin-top:4px;line-height:1.6}
+.hgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px}
+.hcard{background:var(--s1);border:1px solid var(--b);border-radius:13px;padding:18px;border-top:3px solid}
+.hc1{border-top-color:var(--g)}.hc2{border-top-color:var(--bl)}.hc3{border-top-color:var(--o)}.hc4{border-top-color:var(--gold)}.hc5{border-top-color:var(--pur)}.hc6{border-top-color:var(--pink)}.hc7{border-top-color:var(--teal)}.hc8{border-top-color:#ff8a00}
+.hcard h3{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;margin-bottom:7px}
+.hcard ul{list-style:none}
+.hcard ul li{font-size:12px;color:var(--m2);padding:3px 0;border-bottom:1px solid var(--b);line-height:1.5}
+.hcard ul li:last-child{border-bottom:none}
+.hcard ul li::before{content:'→ ';color:var(--m)}
+.lw{border:1px solid var(--b);border-radius:13px;overflow:hidden}
+.lh{display:grid;grid-template-columns:32px 1fr 105px 85px;background:var(--s2);border-bottom:1px solid var(--b);padding:9px 16px;gap:12px}
+.lh span{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--m)}
+.lr{display:grid;grid-template-columns:32px 1fr 105px 85px;padding:13px 16px;gap:12px;border-bottom:1px solid var(--b);transition:background .15s;align-items:start}
+.lr:last-child{border-bottom:none}.lr:hover{background:var(--s2)}
+.ln{font-family:'Syne',sans-serif;font-weight:800;font-size:20px;color:var(--b2);line-height:1}
+.lt{font-weight:500;font-size:13px;margin-bottom:2px}
+.lau{font-size:11px;color:var(--m);margin-bottom:3px}
+.lp{font-size:11.5px;color:var(--m2);line-height:1.5}
+.lcn{font-size:11.5px;font-weight:600}.lpg{font-size:11.5px;color:var(--m2)}
+.egrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:12px}
+.ec{background:var(--s1);border:1px solid #ff4a8a28;border-radius:13px;padding:18px}
+.ec h3{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;color:var(--pink);margin-bottom:5px}
+.ec .edesc{font-size:12px;color:var(--m2);margin-bottom:8px;line-height:1.5}
+.ec .efix{font-size:11.5px;color:#90e090;background:#00e87a0c;border-radius:5px;padding:6px 9px;border-left:2px solid var(--g)}
+.rgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(165px,1fr));gap:10px}
+.rc{background:var(--s1);border:1px solid var(--b);border-radius:11px;padding:16px;border-top:2px solid var(--g)}
+.rt{font-family:'Syne',sans-serif;font-size:24px;font-weight:800;color:var(--g);line-height:1;margin-bottom:4px}
+.rl{font-size:11.5px;font-weight:600;color:var(--t);margin-bottom:3px}
+.rd{font-size:11.5px;color:var(--m2);line-height:1.5}
+.regla{background:linear-gradient(135deg,#ffc84a08,#ffc84a16);border:1px solid #ffc84a32;border-radius:13px;padding:20px 24px;display:flex;gap:14px;margin-bottom:12px}
+.ri{font-size:28px;line-height:1}.rb h3{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;color:var(--gold);margin-bottom:5px}
+.rb p{font-size:13px;color:#b89a50;line-height:1.75}
+.rm{display:flex;flex-direction:column;gap:0}
+.rmi{display:flex;gap:18px;position:relative}
+.rmi::before{content:'';position:absolute;left:17px;top:40px;bottom:-1px;width:2px;background:var(--b);z-index:0}
+.rmi:last-child::before{display:none}
+.rmd{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;font-size:12px;flex-shrink:0;position:relative;z-index:1;margin-top:2px}
+.rmc{background:var(--s1);border:1px solid var(--b);border-radius:11px;padding:14px 18px;flex:1;margin-bottom:10px}
+.rmc h3{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;margin-bottom:3px}
+.rmc p{font-size:12px;color:var(--m2);line-height:1.55}
+.rmc .rmt{font-size:10.5px;color:var(--m);margin-top:5px;font-weight:600}
+footer{text-align:center;padding:36px 0 18px;border-top:1px solid var(--b);color:var(--m);font-size:12px;margin-top:30px}
+@media(max-width:580px){.td{width:50px;font-size:8.5px}.lh,.lr{grid-template-columns:28px 1fr}.lcn,.lpg{display:none}h1{font-size:30px}.mn{font-size:30px;min-width:40px}}
+</style>
+</head>
+<body>
+<nav><div class="nav-inner">
+  <button class="nbtn n0" onclick="document.getElementById('top').scrollIntoView({behavior:'smooth'})">Inicio</button>
+  <button class="nbtn n1" onclick="document.getElementById('roadmap').scrollIntoView({behavior:'smooth'})">Roadmap</button>
+  <button class="nbtn n2" onclick="document.getElementById('prompt').scrollIntoView({behavior:'smooth'})">Meta-Prompt</button>
+  <button class="nbtn n3" onclick="document.getElementById('recursos').scrollIntoView({behavior:'smooth'})">Recursos</button>
+  <button class="nbtn n4" onclick="document.getElementById('habilidades').scrollIntoView({behavior:'smooth'})">Habilidades</button>
+  <button class="nbtn n5" onclick="document.getElementById('plan').scrollIntoView({behavior:'smooth'})">Plan Semanal</button>
+  <button class="nbtn n6" onclick="document.getElementById('avanzado').scrollIntoView({behavior:'smooth'})">Nivel Avanzado</button>
+  <button class="nbtn n7" onclick="document.getElementById('libros').scrollIntoView({behavior:'smooth'})">Libros</button>
+  <button class="nbtn n8" onclick="document.getElementById('errores').scrollIntoView({behavior:'smooth'})">Errores</button>
+  <button class="nbtn n9" onclick="document.getElementById('rutina').scrollIntoView({behavior:'smooth'})">Rutina y Reglas</button>
+</div></nav>
+<div class="wrap">
+<header id="top">
+  <div class="chip">Guia Definitiva · De Cero a Trader Profesional</div>
+  <h1>Tu Camino Completo<br>al Trading Profesional</h1>
+  <p class="hsub">Desde principiante absoluto hasta trader rentable. 12+ meses de contenido, recursos verificados, plan semana a semana y todo lo que necesitas en un solo lugar.</p>
+  <div class="htags">
+    <span class="htag">12+ meses de contenido</span><span class="htag">6 Etapas progresivas</span>
+    <span class="htag">Videos + Libros + Practica</span><span class="htag">Links verificados</span>
+    <span class="htag">Espanol + ingles basico</span><span class="htag">Actualizacion permanente</span>
+  </div>
+</header>
+<!-- ROADMAP -->
+<section class="sec" id="roadmap">
+<p class="slabel sl1">00 — Tu Camino Completo de un Vistazo</p>
+<div class="rm">
+  <div class="rmi"><div class="rmd" style="background:var(--g);color:#000">1</div><div class="rmc"><h3 style="color:var(--g)">ETAPA 1 — Mentalidad y Fundamentos</h3><p>Entender como funciona el mercado, que es el trading real, psicologia del dinero y por que fracasa el 90%. Sin tocar un grafico todavia.</p><p class="rmt">Meses 1 a 2 · Semanas 1 a 8</p></div></div>
+  <div class="rmi"><div class="rmd" style="background:var(--bl);color:#000">2</div><div class="rmc"><h3 style="color:var(--bl)">ETAPA 2 — Analisis Tecnico Base</h3><p>Velas japonesas, tendencias, soportes, resistencias, medias moviles, RSI, MACD y volumen. El lenguaje de los graficos.</p><p class="rmt">Meses 3 a 4 · Semanas 9 a 16</p></div></div>
+  <div class="rmi"><div class="rmd" style="background:var(--o);color:#000">3</div><div class="rmc"><h3 style="color:var(--o)">ETAPA 3 — Analisis Tecnico Avanzado</h3><p>Fibonacci, patrones armonicos, ondas de Elliott, price action puro, smart money y analisis multitemporal.</p><p class="rmt">Meses 5 a 6 · Semanas 17 a 24</p></div></div>
+  <div class="rmi"><div class="rmd" style="background:var(--gold);color:#000">4</div><div class="rmc"><h3 style="color:var(--gold)">ETAPA 4 — Cuenta Demo con Disciplina Real</h3><p>Operar con capital ficticio pero con las mismas reglas que dinero real. Diario de trading, evaluacion semanal y construccion de tu sistema personal.</p><p class="rmt">Meses 5 a 8 · Paralelo al tecnico avanzado</p></div></div>
+  <div class="rmi"><div class="rmd" style="background:var(--pur);color:#fff">5</div><div class="rmc"><h3 style="color:var(--pur)">ETAPA 5 — Dinero Real Minimo</h3><p>Primeras operaciones con capital reducido. Aprender a manejar la presion emocional del dinero real con riesgo controlado.</p><p class="rmt">Meses 8 a 12</p></div></div>
+  <div class="rmi"><div class="rmd" style="background:var(--pink);color:#fff">6</div><div class="rmc"><h3 style="color:var(--pink)">ETAPA 6 — Especializacion y Escala</h3><p>Elegir tu mercado definitivo, perfeccionar tu sistema, aumentar capital con criterio y construir tu ventaja competitiva real.</p><p class="rmt">Ano 2 en adelante</p></div></div>
+  <div class="rmi"><div class="rmd" style="background:var(--teal);color:#000">7</div><div class="rmc"><h3 style="color:var(--teal)">ETAPA 7 — Trader Profesional</h3><p>Trading como fuente de ingresos fuerte y sostenible. Sistema probado, capital significativo, disciplina irrompible y mentalidad de largo plazo.</p><p class="rmt">Ano 3 en adelante</p></div></div>
+</div>
+</section>
+
+<!-- META PROMPT -->
+<section class="sec" id="prompt">
+<p class="slabel sl1">01 — Meta-Prompt · Copia esto en cada nueva conversacion con Claude</p>
+<div class="prompt-box">
+<p class="pt">
+<strong>Eres el mejor trader e instructor financiero del mundo.</strong> Combinas la mentalidad de Ray Dalio, la disciplina de Paul Tudor Jones, el analisis de George Soros y la pedagogia de los mejores profesores universitarios de finanzas. Tienes experiencia real en todos los mercados: acciones, ETFs, indices, Forex y criptomonedas.<br><br>
+<strong>CONTEXTO SOBRE MI:</strong> Soy un principiante absoluto en trading. No tengo experiencia previa. Mi objetivo es aprender de forma seria y honesta para que a largo plazo el trading sea una fuente de ingresos real y sostenible. No busco hacerme rico rapido. Prefiero contenido en espanol aunque puedo con ingles basico. Aprendo mejor con videos. Tengo 30-60 minutos diarios para videos y leo libros a mi propio ritmo. Tengo acceso a TradingView, MetaTrader 5 y cuenta demo.<br><br>
+<strong>TU MISION:</strong> Antes de responder, identifica los errores mas comunes de principiantes y asegurate de prevenirlos. Responde con profundidad real, honestidad total y ejemplos concretos siempre. Sin vender nada. Sin atajos. Si algo es riesgoso, dimelo claramente. Estructura todo en bloques numerados y al final siempre preguntame que quiero profundizar a continuacion.
+</p>
+</div>
+</section>
+<!-- RECURSOS -->
+<section class="sec" id="recursos">
+<p class="slabel sl2">02 — Recursos Verificados por Categoria</p>
+
+<p class="sec-sub" style="color:var(--g)">CANALES YOUTUBE — ESPANOL</p>
+<div class="cgrid" style="margin-bottom:16px">
+  <div class="card"><div class="bdg bg">Principal</div><h3>DPStrading</h3><p>Daniel Pernas. Todo organizado por temas. Gratuito, honesto, sin vender humo. Seccion especial para principiantes.</p><a href="https://www.youtube.com/@dpstrading" target="_blank" class="cl lg">Canal →</a></div>
+  <div class="card"><div class="bdg bg">Espanol</div><h3>El Arte de Invertir</h3><p>Alejandro Esterbaranz. +1M suscriptores. Bolsa y acciones. Muy didactico y sin exageraciones.</p><a href="https://www.youtube.com/@ARTEDEINVERTIR" target="_blank" class="cl lg">Canal →</a></div>
+  <div class="card"><div class="bdg bg">Espanol</div><h3>Pablo Gil Trader</h3><p>35 anos de experiencia real. Economia y mercados con profundidad. Uno de los mejores en espanol.</p><a href="https://www.youtube.com/@PabloGilTrader" target="_blank" class="cl lg">Canal →</a></div>
+  <div class="card"><div class="bdg bg">Espanol</div><h3>Sergio Nozal</h3><p>Trader profesional espanol. Analisis tecnico avanzado y estrategias reales. Para cuando tengas base.</p><a href="https://www.youtube.com/@SergioNozal" target="_blank" class="cl lg">Canal →</a></div>
+</div>
+
+<p class="sec-sub" style="color:var(--bl)">CANALES YOUTUBE — INGLES BASICO</p>
+<div class="cgrid" style="margin-bottom:16px">
+  <div class="card"><div class="bdg bb">Ingles basico</div><h3>Rayner Teo</h3><p>El mejor del mundo en analisis tecnico. Tan visual que con ingles basico alcanza perfectamente.</p><a href="https://www.youtube.com/@RaynerTeo" target="_blank" class="cl lb">Canal →</a></div>
+  <div class="card"><div class="bdg bb">Ingles basico</div><h3>Adam Khoo</h3><p>Trader e inversor profesional. Muy bueno para acciones y bolsa. Honesto sobre riesgos y tiempos reales.</p><a href="https://www.youtube.com/@AdamKhoo" target="_blank" class="cl lb">Canal →</a></div>
+  <div class="card"><div class="bdg bb">Ingles basico</div><h3>TheChartGuys</h3><p>Analisis tecnico en tiempo real. Ver como piensa un trader profesional. Excelente para la etapa 3.</p><a href="https://www.youtube.com/@TheChartGuys" target="_blank" class="cl lb">Canal →</a></div>
+  <div class="card"><div class="bdg bb">Ingles basico</div><h3>Warrior Trading</h3><p>Especializado en day trading y momentum. Para cuando llegues a etapas avanzadas.</p><a href="https://www.youtube.com/@WarriorTrading" target="_blank" class="cl lb">Canal →</a></div>
+</div>
+
+<p class="sec-sub" style="color:var(--o)">CURSOS GRATUITOS</p>
+<div class="cgrid" style="margin-bottom:16px">
+  <div class="card"><div class="bdg bo">Gratuito · Espanol</div><h3>Trading desde 0 — Udemy</h3><p>Curso completo gratuito. +4.500 estudiantes. Mercados, velas, analisis tecnico, stop loss y demo. En espanol.</p><a href="https://www.udemy.com/course/aprende-trading-gratis-desde-0-analisis-tecnico/" target="_blank" class="cl lo">Ir al curso →</a></div>
+  <div class="card"><div class="bdg bo">Gratuito · Ingles</div><h3>Investopedia Academy</h3><p>La enciclopedia del trading. La fuente mas confiable del mundo. Articulos sobre todos los conceptos.</p><a href="https://www.investopedia.com" target="_blank" class="cl lo">Ir →</a></div>
+  <div class="card"><div class="bdg bo">Gratuito · Espanol</div><h3>Rankia — Cursos</h3><p>Cursos y articulos en espanol de la comunidad financiera mas grande en espanol.</p><a href="https://www.rankia.com/blog/mejores-brokers/mejores-cursos-trading" target="_blank" class="cl lo">Ver cursos →</a></div>
+</div>
+
+<p class="sec-sub" style="color:var(--gold)">PLATAFORMAS DE ANALISIS Y PRACTICA</p>
+<div class="cgrid" style="margin-bottom:16px">
+  <div class="card"><div class="bdg bgold">Analisis</div><h3>TradingView</h3><p>La plataforma de analisis mas usada del mundo. Version gratuita suficiente para empezar. En espanol.</p><a href="https://www.tradingview.com" target="_blank" class="cl lgold">Ir →</a></div>
+  <div class="card"><div class="bdg bgold">Demo · Operativa</div><h3>MetaTrader 5</h3><p>La plataforma operativa mas usada. Cuenta demo gratuita. En espanol. Desde la etapa 4.</p><a href="https://www.metatrader5.com" target="_blank" class="cl lgold">Descargar →</a></div>
+  <div class="card"><div class="bdg bgold">Social · Demo</div><h3>eToro</h3><p>Demo + funcion social. Podes ver que operan traders reales. Amigable para principiantes.</p><a href="https://www.etoro.com" target="_blank" class="cl lgold">Ir →</a></div>
+  <div class="card"><div class="bdg bgold">Backtesting</div><h3>TradingView Replay</h3><p>Funcion de replay de TradingView para testear tu sistema en datos historicos sin riesgo.</p><a href="https://www.tradingview.com" target="_blank" class="cl lgold">TradingView →</a></div>
+</div>
+
+<p class="sec-sub" style="color:var(--pur)">NOTICIAS · DATOS · COMUNIDAD</p>
+<div class="cgrid" style="margin-bottom:16px">
+  <div class="card"><div class="bdg bpur">Noticias</div><h3>Investing.com</h3><p>Noticias financieras en tiempo real en espanol. App disponible. Para la rutina diaria de 10 minutos.</p><a href="https://www.investing.com" target="_blank" class="cl lpur">Ir →</a></div>
+  <div class="card"><div class="bdg bpur">Datos</div><h3>Yahoo Finance</h3><p>Datos de acciones, graficos historicos y noticias. Gratuito. Para investigar empresas y activos.</p><a href="https://finance.yahoo.com" target="_blank" class="cl lpur">Ir →</a></div>
+  <div class="card"><div class="bdg bpur">Comunidad</div><h3>Rankia</h3><p>La mejor comunidad financiera en espanol. Foros y articulos de traders reales.</p><a href="https://www.rankia.com" target="_blank" class="cl lpur">Ir →</a></div>
+  <div class="card"><div class="bdg bpur">Calendario</div><h3>Calendario Economico</h3><p>Eventos economicos que mueven los mercados. Consultalo todos los dias antes de operar.</p><a href="https://www.investing.com/economic-calendar/" target="_blank" class="cl lpur">Ver calendario →</a></div>
+</div>
+
+<p class="sec-sub" style="color:var(--pink)">BROKERS REGULADOS PARA CUANDO ESTES LISTO</p>
+<div class="cgrid">
+  <div class="card"><div class="bdg bpink">Broker · Acciones</div><h3>eToro</h3><p>Regulado. Interfaz simple. Bueno para empezar con acciones reales. Cero comision en acciones.</p><a href="https://www.etoro.com" target="_blank" class="cl lpink">Ir →</a></div>
+  <div class="card"><div class="bdg bpink">Broker · Acciones</div><h3>DEGIRO</h3><p>Uno de los brokers mas baratos de Europa. Regulado. Bueno para acciones y ETFs a largo plazo.</p><a href="https://www.degiro.es" target="_blank" class="cl lpink">Ir →</a></div>
+  <div class="card"><div class="bdg bpink">Broker · Forex/CFD</div><h3>XTB</h3><p>Broker regulado con plataforma xStation. Muy usada en Latinoamerica y Espana. Cuenta demo incluida.</p><a href="https://www.xtb.com" target="_blank" class="cl lpink">Ir →</a></div>
+  <div class="card"><div class="bdg bpink">Broker · Global</div><h3>Interactive Brokers</h3><p>El broker preferido por traders profesionales. Acceso a todos los mercados del mundo. Para etapas avanzadas.</p><a href="https://www.interactivebrokers.com" target="_blank" class="cl lpink">Ir →</a></div>
+</div>
+</section>
+<!-- PLAYLISTS -->
+<section class="sec">
+<p class="slabel sl2">03 — Playlists Verificadas DPStrading</p>
+<div class="cgrid">
+  <div class="card"><div class="bdg bg">DPStrading</div><h3>Esenciales Principiantes</h3><p>Tu primer recurso. Todo para empezar desde cero organizado en un solo lugar.</p><a href="https://dpstrading.net/esenciales-para-principiantes/" target="_blank" class="cl lg">Ver →</a></div>
+  <div class="card"><div class="bdg bg">DPStrading</div><h3>Diccionario de Trading</h3><p>Cada concepto en un video corto. Consultalo cuando no entiendas un termino.</p><a href="https://www.youtube.com/playlist?list=PLA3-oGsjQLhromLpZckH5v_5N5x-FxbOE" target="_blank" class="cl lg">Ver →</a></div>
+  <div class="card"><div class="bdg bg">DPStrading</div><h3>Psicotrading</h3><p>Mentalidad, miedo, codicia y disciplina. Lo mas importante antes de operar con dinero real.</p><a href="https://www.youtube.com/playlist?list=PLA3-oGsjQLhrwz-5Ydr6D4w714DxJrZdb" target="_blank" class="cl lg">Ver →</a></div>
+  <div class="card"><div class="bdg bg">DPStrading</div><h3>Analisis Tecnico</h3><p>Como analizar acciones paso a paso. Para las semanas 9 a 12 del plan.</p><a href="https://www.youtube.com/playlist?list=PLA3-oGsjQLhosLLkg00HbWEXRPViX6ihL" target="_blank" class="cl lg">Ver →</a></div>
+</div>
+</section>
+
+<!-- HABILIDADES -->
+<section class="sec" id="habilidades">
+<p class="slabel sl3">04 — Habilidades que Vas a Desarrollar</p>
+<div class="hgrid">
+  <div class="hcard hc1"><h3 style="color:var(--g)">Analisis Tecnico Base</h3><ul>
+    <li>Leer velas japonesas y patrones</li><li>Identificar tendencias alcistas y bajistas</li>
+    <li>Trazar soportes y resistencias</li><li>Usar medias moviles SMA y EMA</li>
+    <li>Interpretar RSI y zonas de sobrecompra</li><li>Leer el MACD y sus senales</li>
+    <li>Usar el volumen como confirmacion</li><li>Bandas de Bollinger</li>
+  </ul></div>
+  <div class="hcard hc2"><h3 style="color:var(--bl)">Analisis Tecnico Avanzado</h3><ul>
+    <li>Niveles de Fibonacci</li><li>Patrones armonicos Gartley y Bat</li>
+    <li>Ondas de Elliott</li><li>Price action puro sin indicadores</li>
+    <li>Smart money y order blocks</li><li>Analisis multi-temporal</li>
+    <li>Divergencias en indicadores</li><li>Zonas de liquidez institucional</li>
+  </ul></div>
+  <div class="hcard hc3"><h3 style="color:var(--o)">Analisis Fundamental</h3><ul>
+    <li>Leer balances e informes financieros</li><li>Entender el PER y valoracion</li>
+    <li>Interpretar noticias economicas</li><li>Usar el calendario economico</li>
+    <li>Impacto de tasas de interes</li><li>Analizar sectores del mercado</li>
+    <li>Comparar empresas del mismo sector</li>
+  </ul></div>
+  <div class="hcard hc4"><h3 style="color:var(--gold)">Gestion del Riesgo</h3><ul>
+    <li>Regla del 1-2% por operacion</li><li>Calcular tamano de posicion exacto</li>
+    <li>Stop loss en el 100% de operaciones</li><li>Relacion riesgo/recompensa 1:2 minimo</li>
+    <li>Gestionar el drawdown</li><li>Diversificar exposicion</li>
+    <li>Controlar el apalancamiento</li><li>Proteger capital en rachas negativas</li>
+  </ul></div>
+  <div class="hcard hc5"><h3 style="color:var(--pur)">Psicologia del Trader</h3><ul>
+    <li>Controlar miedo y codicia</li><li>Evitar el revenge trading</li>
+    <li>Seguir el plan bajo presion emocional</li><li>Manejar rachas de perdidas</li>
+    <li>Desarrollar disciplina operativa real</li><li>Pensar en probabilidades no certezas</li>
+    <li>Aceptar las perdidas como costo del negocio</li>
+  </ul></div>
+  <div class="hcard hc6"><h3 style="color:var(--pink)">Construccion de Sistema</h3><ul>
+    <li>Definir reglas exactas de entrada y salida</li><li>Backtesting manual e historico</li>
+    <li>Medir winrate y ratio ganancia/perdida</li><li>Optimizar parametros del sistema</li>
+    <li>Adaptar el sistema al mercado actual</li><li>Crear un plan de trading escrito</li>
+    <li>Evaluar y mejorar continuamente</li>
+  </ul></div>
+  <div class="hcard hc7"><h3 style="color:var(--teal)">Herramientas</h3><ul>
+    <li>Dominar TradingView completo</li><li>Operar en MetaTrader 5</li>
+    <li>Llevar un diario de trading riguroso</li><li>Usar el calendario economico diario</li>
+    <li>Leer graficos en multiples timeframes</li><li>Gestionar cuenta demo y real</li>
+    <li>Usar el replay de TradingView</li>
+  </ul></div>
+  <div class="hcard hc8"><h3 style="color:#ff8a00">Mercados a Dominar</h3><ul>
+    <li>Acciones individuales</li><li>ETFs sectoriales y de indices</li>
+    <li>Indices S&P500, Nasdaq, Dow Jones</li><li>Forex — pares principales</li>
+    <li>Materias primas — oro, petroleo</li><li>Criptomonedas — cuando tengas base</li>
+    <li>Opciones — nivel experto</li>
+  </ul></div>
+</div>
+</section>
+<!-- PLAN SEMANAL -->
+<section class="sec" id="plan">
+<p class="slabel sl4">05 — Plan Semanal Completo · Semana a Semana</p>
+
+<!-- ETAPA 1 -->
+<div class="eb e1"><h2 style="color:var(--g)">ETAPA 1 — Mentalidad y Fundamentos</h2><p>Base mental antes que cualquier tecnica. Esta etapa define todo lo que viene despues. No se puede saltear.</p><div class="emeta"><span class="etag">Meses 1 a 2</span><span class="etag">Semanas 1 a 8</span><span class="etag">Sin tocar graficos todavia</span></div></div>
+
+<div class="mes open">
+<div class="mh mh1" onclick="this.closest('.mes').classList.toggle('open')"><span class="mn">01</span><div class="mi"><h2>Mes 1 — Vision General y Base Mental</h2><p>Semanas 1 a 4 · Entender el terreno antes de pisarlo</p></div><span class="tog">▾</span></div>
+<div class="mb">
+  <div class="sem">
+    <div class="sh"><span class="sn sg">SEM 1</span><span class="st">En que mundo me estoy metiendo</span></div>
+    <p class="sob sob1">Entender que es el trading real y honesto antes de aprender cualquier tecnica.</p>
+    <table class="dt">
+      <tr><td class="td">Lunes</td><td class="tc"><p class="at">Fundamentos del analisis tecnico desde cero</p><p class="ad">Primer video de DPStrading. Vision general sin exagerar. Ideal para el dia 1.</p><a href="https://www.youtube.com/watch?v=OmHx1CYeAEY" target="_blank" class="al">Ver video →</a></td></tr>
+      <tr><td class="td">Martes</td><td class="tc"><p class="at">Que es un ETF</p><p class="ad">Buscar en DPStrading: "que es un ETF". Activos ideales para empezar.</p><a href="https://www.youtube.com/@dpstrading" target="_blank" class="al">Canal →</a></td></tr>
+      <tr><td class="td">Miercoles</td><td class="tc"><p class="at">Diccionario de Trading — Primeros 3 videos</p><a href="https://www.youtube.com/playlist?list=PLA3-oGsjQLhromLpZckH5v_5N5x-FxbOE" target="_blank" class="al">Playlist →</a></td></tr>
+      <tr><td class="td">Jueves</td><td class="tc"><p class="at">Por que falla el 90% — Psicotrading</p><p class="ad">Primeros 2 videos de la playlist de mentalidad.</p><a href="https://www.youtube.com/playlist?list=PLA3-oGsjQLhrwz-5Ydr6D4w714DxJrZdb" target="_blank" class="al">Playlist →</a></td></tr>
+      <tr><td class="td">Viernes</td><td class="tc"><p class="at">Primer contacto con TradingView</p><p class="ad">Abre TradingView, busca Apple (AAPL) y solo observa 10 minutos sin tocar nada.</p><a href="https://www.tradingview.com" target="_blank" class="al">TradingView →</a></td></tr>
+      <tr><td class="td">Sabado</td><td class="tc"><p class="at">Exploracion libre DPStrading</p><a href="https://dpstrading.net/esenciales-para-principiantes/" target="_blank" class="al">Esenciales →</a></td></tr>
+      <tr><td class="td">Domingo</td><td class="tc"><p class="ad2">Escribe en tu cuaderno: Que aprendi? Que no entendi? Que me genero mas curiosidad?</p></td></tr>
+    </table>
+  </div>
+  <div class="sem">
+    <div class="sh"><span class="sn sg">SEM 2</span><span class="st">Los mercados financieros en profundidad</span></div>
+    <p class="sob sob1">Entender cada mercado y sentir cual te llama mas.</p>
+    <table class="dt">
+      <tr><td class="td">Lun-Vie</td><td class="tc"><p class="at">Curso Trading desde 0 — Udemy, un modulo por dia</p><a href="https://www.udemy.com/course/aprende-trading-gratis-desde-0-analisis-tecnico/" target="_blank" class="al">Curso →</a></td></tr>
+      <tr><td class="td">Sabado</td><td class="tc"><p class="at">El Arte de Invertir — Por que invertir en bolsa</p><a href="https://www.youtube.com/@ARTEDEINVERTIR" target="_blank" class="al">Canal →</a></td></tr>
+      <tr><td class="td">Domingo</td><td class="tc"><p class="ad2">Diario: Que mercado te llamo mas la atencion y por que?</p></td></tr>
+    </table>
+  </div>
+  <div class="sem">
+    <div class="sh"><span class="sn sg">SEM 3</span><span class="st">Gestion del riesgo — La habilidad mas importante</span></div>
+    <p class="sob sob1">Dominar el riesgo antes de ver cualquier estrategia. Esta semana es la mas importante del plan completo.</p>
+    <table class="dt">
+      <tr><td class="td">Lun-Vie</td><td class="tc"><p class="at">Udemy — Modulos de gestion del riesgo</p><p class="ad">Maxima atencion a stop loss, take profit y gestion del capital.</p><a href="https://www.udemy.com/course/aprende-trading-gratis-desde-0-analisis-tecnico/" target="_blank" class="al">Continuar →</a></td></tr>
+      <tr><td class="td">Miercoles</td><td class="tc"><p class="at">Ejercicio practico de riesgo</p><div class="aej">Con papel y calculadora: calcula el 1% y 2% de 500, 1.000 y 2.000 USD. Simula 5 operaciones perdedoras seguidas respetando esa regla. Veras exactamente por que la regla existe y por que salva cuentas.</div></td></tr>
+      <tr><td class="td">Sabado</td><td class="tc"><a href="https://www.youtube.com/playlist?list=PLA3-oGsjQLhrwz-5Ydr6D4w714DxJrZdb" target="_blank" class="al">Psicotrading DPStrading →</a></td></tr>
+      <tr><td class="td">Domingo</td><td class="tc"><p class="ad2">Podes explicar con tus palabras stop loss, take profit y la regla del 1-2%? Si no podes, repetis los videos antes de avanzar.</p></td></tr>
+    </table>
+  </div>
+  <div class="sem">
+    <div class="sh"><span class="sn sg">SEM 4</span><span class="st">Psicologia del trader</span></div>
+    <p class="sob sob1">Entender como funciona tu cerebro cuando hay dinero en juego y construir la base mental correcta desde el inicio.</p>
+    <table class="dt">
+      <tr><td class="td">Lun-Vie</td><td class="tc"><p class="at">Playlist Psicotrading completa — Un video por dia</p><a href="https://www.youtube.com/playlist?list=PLA3-oGsjQLhrwz-5Ydr6D4w714DxJrZdb" target="_blank" class="al">Playlist →</a></td></tr>
+      <tr><td class="td">Sabado</td><td class="tc"><p class="at">Trading Psychology — Rayner Teo</p><a href="https://www.youtube.com/@RaynerTeo" target="_blank" class="al">Buscar: "trading psychology" →</a></td></tr>
+      <tr><td class="td">Sabado</td><td class="tc"><p class="at">Crear el Diario de Trading</p><div class="aej">En cuaderno fisico: Fecha · Activo · Por que entras · Entrada · Stop Loss · Take Profit · Resultado · Que salio bien · Que salio mal · Que harias diferente.</div></td></tr>
+      <tr><td class="td">Domingo</td><td class="tc"><p class="ad2">REVISION MES 1: Que sabes hoy que no sabias hace un mes? Que concepto no quedo claro?</p></td></tr>
+    </table>
+  </div>
+</div>
+</div>
+
+<div class="mes">
+<div class="mh mh1" onclick="this.closest('.mes').classList.toggle('open')"><span class="mn">02</span><div class="mi"><h2>Mes 2 — Analisis Fundamental y Macro</h2><p>Semanas 5 a 8 · Entender que mueve los mercados de fondo</p></div><span class="tog">▾</span></div>
+<div class="mb">
+  <div class="sem">
+    <div class="sh"><span class="sn sg">SEM 5</span><span class="st">Noticias economicas y calendario</span></div>
+    <p class="sob sob1">Entender como los eventos macro mueven los mercados y como prepararse para ellos.</p>
+    <table class="dt">
+      <tr><td class="td">Lun-Vie</td><td class="tc"><p class="at">Calendario economico — Como leerlo y usarlo</p><a href="https://www.investing.com/economic-calendar/" target="_blank" class="al">Ver calendario →</a><a href="https://www.youtube.com/@dpstrading" target="_blank" class="al">DPStrading: "calendario economico" →</a></td></tr>
+      <tr><td class="td">Sabado</td><td class="tc"><p class="at">Pablo Gil — Estado actual del mercado</p><p class="ad">Ver el video mas reciente del canal para entender el contexto macro actual.</p><a href="https://www.youtube.com/@PabloGilTrader" target="_blank" class="al">Canal →</a></td></tr>
+    </table>
+  </div>
+  <div class="sem">
+    <div class="sh"><span class="sn sg">SEM 6</span><span class="st">Analisis fundamental basico</span></div>
+    <p class="sob sob1">Entender como se valora una empresa y por que el precio sube o baja segun sus resultados.</p>
+    <table class="dt">
+      <tr><td class="td">Lun-Vie</td><td class="tc"><p class="at">PER, EPS, ROE — Como analizar una empresa</p><a href="https://www.youtube.com/@ARTEDEINVERTIR" target="_blank" class="al">El Arte de Invertir →</a><a href="https://www.investopedia.com" target="_blank" class="al">Investopedia →</a></td></tr>
+    </table>
+  </div>
+  <div class="sem">
+    <div class="sh"><span class="sn sg">SEM 7</span><span class="st">Sectores del mercado y ETFs</span></div>
+    <p class="sob sob1">El mercado no se mueve todo junto. Entender los sectores te da ventaja para elegir donde operar.</p>
+    <table class="dt">
+      <tr><td class="td">Lun-Vie</td><td class="tc"><p class="at">Sectores del S&P500 — Tecnologia, salud, energia, finanzas</p><a href="https://www.youtube.com/@ARTEDEINVERTIR" target="_blank" class="al">El Arte de Invertir →</a><a href="https://finance.yahoo.com" target="_blank" class="al">Yahoo Finance →</a></td></tr>
+    </table>
+  </div>
+  <div class="sem">
+    <div class="sh"><span class="sn sg">SEM 8</span><span class="st">Tecnico + Fundamental juntos</span></div>
+    <p class="sob sob1">Aprender a combinar ambos enfoques para tomar decisiones mas solidas.</p>
+    <table class="dt">
+      <tr><td class="td">Lun-Vie</td><td class="tc"><p class="at">Analisis fundamental vs tecnico — Como combinarlos</p><a href="https://www.youtube.com/@dpstrading" target="_blank" class="al">DPStrading →</a><a href="https://www.youtube.com/@RaynerTeo" target="_blank" class="al">Rayner Teo: "fundamental vs technical" →</a></td></tr>
+      <tr><td class="td">Domingo</td><td class="tc"><div class="aej">Ejercicio: elige 3 empresas reales. Para cada una escribe que hace, en que sector esta y si crees que esta cara o barata segun lo aprendido.</div></td></tr>
+    </table>
+  </div>
+</div>
+</div>
+<!-- ETAPA 2 -->
+<div class="eb e2" style="margin-top:20px"><h2 style="color:var(--bl)">ETAPA 2 — Analisis Tecnico Base</h2><p>El lenguaje de los graficos. Cada semana un tema concreto. Al final de esta etapa vas a poder leer cualquier grafico.</p><div class="emeta"><span class="etag">Meses 3 a 4</span><span class="etag">Semanas 9 a 16</span><span class="etag">Solo analisis, sin operar</span></div></div>
+
+<div class="mes">
+<div class="mh mh2" onclick="this.closest('.mes').classList.toggle('open')"><span class="mn">03</span><div class="mi"><h2>Mes 3 — Analisis Tecnico Base</h2><p>Semanas 9 a 12 · Velas, tendencias, soportes e indicadores</p></div><span class="tog">▾</span></div>
+<div class="mb">
+  <div class="sem">
+    <div class="sh"><span class="sn sbl">SEM 9</span><span class="st">Velas japonesas</span></div>
+    <p class="sob sob2">La unidad basica de todo grafico. Cada vela es un mensaje del mercado.</p>
+    <table class="dt">
+      <tr><td class="td">Lun-Vie</td><td class="tc"><p class="at">Playlist analisis tecnico DPStrading</p><a href="https://www.youtube.com/playlist?list=PLA3-oGsjQLhosLLkg00HbWEXRPViX6ihL" target="_blank" class="al">Playlist →</a></td></tr>
+      <tr><td class="td">Sabado</td><td class="tc"><p class="at">Candlestick patterns — Rayner Teo</p><a href="https://www.youtube.com/@RaynerTeo" target="_blank" class="al">Buscar: "candlestick patterns" →</a></td></tr>
+      <tr><td class="td">Domingo</td><td class="tc"><div class="aej">En TradingView: identifica 5 velas alcistas y 5 bajistas. Busca un doji, un martillo y una estrella fugaz. Escribelos en tu diario.</div><a href="https://www.tradingview.com" target="_blank" class="al">TradingView →</a></td></tr>
+    </table>
+  </div>
+  <div class="sem">
+    <div class="sh"><span class="sn sbl">SEM 10</span><span class="st">Tendencias, soportes y resistencias</span></div>
+    <p class="sob sob2">Identificar hacia donde va el precio y en que niveles rebota. La base de toda estrategia.</p>
+    <table class="dt">
+      <tr><td class="td">Lun-Vie</td><td class="tc"><a href="https://www.youtube.com/@dpstrading" target="_blank" class="al">DPStrading: "soportes resistencias" →</a></td></tr>
+      <tr><td class="td">Sabado</td><td class="tc"><a href="https://www.youtube.com/@RaynerTeo" target="_blank" class="al">Rayner Teo: "support resistance trading" →</a></td></tr>
+      <tr><td class="td">Domingo</td><td class="tc"><div class="aej">En TradingView abre Apple, Tesla y Amazon. Dibuja los 3 soportes y 3 resistencias mas importantes de cada grafico.</div></td></tr>
+    </table>
+  </div>
+  <div class="sem">
+    <div class="sh"><span class="sn sbl">SEM 11</span><span class="st">Medias moviles e indicadores base</span></div>
+    <p class="sob sob2">Herramientas que confirman lo que ya ves en el grafico. Confirman, nunca reemplazan al precio.</p>
+    <table class="dt">
+      <tr><td class="td">Lunes</td><td class="tc"><p class="at">Medias moviles SMA y EMA</p><a href="https://www.youtube.com/@dpstrading" target="_blank" class="al">DPStrading: "medias moviles" →</a></td></tr>
+      <tr><td class="td">Martes</td><td class="tc"><p class="at">RSI — Indice de fuerza relativa</p><a href="https://www.youtube.com/@dpstrading" target="_blank" class="al">DPStrading: "RSI indicador" →</a></td></tr>
+      <tr><td class="td">Miercoles</td><td class="tc"><p class="at">MACD</p><a href="https://www.youtube.com/@dpstrading" target="_blank" class="al">DPStrading: "MACD trading" →</a></td></tr>
+      <tr><td class="td">Jueves</td><td class="tc"><p class="at">Volumen — El rey de la confirmacion</p><a href="https://www.youtube.com/@dpstrading" target="_blank" class="al">DPStrading: "volumen trading" →</a></td></tr>
+      <tr><td class="td">Viernes</td><td class="tc"><p class="at">Bandas de Bollinger</p><a href="https://www.youtube.com/@RaynerTeo" target="_blank" class="al">Rayner Teo: "bollinger bands" →</a></td></tr>
+    </table>
+  </div>
+  <div class="sem">
+    <div class="sh"><span class="sn sbl">SEM 12</span><span class="st">Practica de integracion — Sin videos nuevos</span></div>
+    <p class="sob sob2">Esta semana no ves videos nuevos. Solo aplicar todo lo aprendido en graficos reales.</p>
+    <table class="dt">
+      <tr><td class="td">Lun-Dom</td><td class="tc"><div class="aej">Elige 5 acciones. Para cada una escribe: tendencia, soportes/resistencias clave, lo que dice el RSI, el MACD y el volumen, y donde habrias entrado y salido. Sin mirar que paso. Luego compara con la realidad.</div><a href="https://www.tradingview.com" target="_blank" class="al">TradingView →</a></td></tr>
+    </table>
+  </div>
+</div>
+</div>
+
+<div class="mes">
+<div class="mh mh2" onclick="this.closest('.mes').classList.toggle('open')"><span class="mn">04</span><div class="mi"><h2>Mes 4 — Analisis Tecnico Intermedio</h2><p>Semanas 13 a 16 · Patrones, timeframes, Fibonacci y tu sistema</p></div><span class="tog">▾</span></div>
+<div class="mb">
+  <div class="sem">
+    <div class="sh"><span class="sn sbl">SEM 13</span><span class="st">Patrones de grafico clasicos</span></div>
+    <p class="sob sob2">Patrones que se repiten porque el comportamiento humano se repite. Reconocerlos es una ventaja real.</p>
+    <table class="dt">
+      <tr><td class="td">Lunes</td><td class="tc"><p class="at">Doble techo y doble suelo</p><a href="https://www.youtube.com/@RaynerTeo" target="_blank" class="al">Buscar: "double top double bottom" →</a></td></tr>
+      <tr><td class="td">Martes</td><td class="tc"><p class="at">Hombro Cabeza Hombro</p><a href="https://www.youtube.com/@RaynerTeo" target="_blank" class="al">Buscar: "head and shoulders pattern" →</a></td></tr>
+      <tr><td class="td">Miercoles</td><td class="tc"><p class="at">Triangulos y cunas</p><a href="https://www.youtube.com/@RaynerTeo" target="_blank" class="al">Buscar: "triangle wedge patterns" →</a></td></tr>
+      <tr><td class="td">Jueves</td><td class="tc"><p class="at">Banderas y banderines</p><a href="https://www.youtube.com/@RaynerTeo" target="_blank" class="al">Buscar: "flag pennant pattern" →</a></td></tr>
+      <tr><td class="td">Viernes</td><td class="tc"><p class="at">Repaso en espanol</p><a href="https://www.youtube.com/@dpstrading" target="_blank" class="al">DPStrading: "patrones grafico trading" →</a></td></tr>
+    </table>
+  </div>
+  <div class="sem">
+    <div class="sh"><span class="sn sbl">SEM 14</span><span class="st">Marcos temporales — Timeframes</span></div>
+    <p class="sob sob2">El mismo activo se ve diferente en cada timeframe. Combinarlos es lo que separa al amateur del profesional.</p>
+    <table class="dt">
+      <tr><td class="td">Lun-Vie</td><td class="tc"><a href="https://www.youtube.com/@RaynerTeo" target="_blank" class="al">Rayner Teo: "multiple timeframe analysis" →</a><a href="https://www.youtube.com/@dpstrading" target="_blank" class="al">DPStrading: "marcos temporales" →</a></td></tr>
+      <tr><td class="td">Domingo</td><td class="tc"><div class="aej">Abre el mismo activo en 4 timeframes: mensual, semanal, diario y 4 horas. Describe en tu diario como cambia la perspectiva en cada uno.</div></td></tr>
+    </table>
+  </div>
+  <div class="sem">
+    <div class="sh"><span class="sn sbl">SEM 15</span><span class="st">Fibonacci</span></div>
+    <p class="sob sob2">Identificar donde puede detenerse una correccion del precio. Muy efectivo combinado con soportes.</p>
+    <table class="dt">
+      <tr><td class="td">Lun-Vie</td><td class="tc"><a href="https://www.youtube.com/@RaynerTeo" target="_blank" class="al">Rayner Teo: "fibonacci retracement" →</a><a href="https://www.youtube.com/@dpstrading" target="_blank" class="al">DPStrading: "fibonacci trading" →</a></td></tr>
+    </table>
+  </div>
+  <div class="sem">
+    <div class="sh"><span class="sn sbl">SEM 16</span><span class="st">Tu primer sistema de trading</span></div>
+    <p class="sob sob2">Con todo lo aprendido, escribis tu primer sistema en papel. Este es el momento de empezar a pensar como trader real.</p>
+    <table class="dt">
+      <tr><td class="td">Lun-Dom</td><td class="tc"><div class="aej">Escribe en tu cuaderno tu sistema completo: Que mercado · Que timeframe principal · Como identifico la tendencia · Donde entro exactamente · Stop loss · Take profit · Cuanto arriesgo · Que indicadores confirman. Este sistema lo vas a probar en demo.</div></td></tr>
+    </table>
+  </div>
+</div>
+</div>
+<!-- ETAPA 3 -->
+<div class="eb e3" style="margin-top:20px"><h2 style="color:var(--o)">ETAPA 3 — Analisis Tecnico Avanzado</h2><p>Para cuando ya dominas lo basico. Price action, smart money, patrones armonicos y ondas de Elliott.</p><div class="emeta"><span class="etag">Meses 5 a 6</span><span class="etag">Semanas 17 a 24</span><span class="etag">Paralelo a la cuenta demo</span></div></div>
+
+<div class="mes">
+<div class="mh mh3" onclick="this.closest('.mes').classList.toggle('open')"><span class="mn">5-6</span><div class="mi"><h2>Meses 5 a 6 — Tecnico Avanzado</h2><p>Price action, smart money, armonicos y Elliott</p></div><span class="tog">▾</span></div>
+<div class="mb">
+  <div class="sem">
+    <div class="sh"><span class="sn so">SEM 17-18</span><span class="st">Price Action Puro</span></div>
+    <p class="sob sob3">Operar sin indicadores, solo leyendo el precio y el volumen. La habilidad mas valorada entre traders profesionales.</p>
+    <table class="dt">
+      <tr><td class="td">2 semanas</td><td class="tc"><p class="at">Serie completa de Price Action</p><a href="https://www.youtube.com/@RaynerTeo" target="_blank" class="al">Rayner Teo: "price action trading complete guide" →</a><a href="https://www.youtube.com/@dpstrading" target="_blank" class="al">DPStrading: "price action" →</a></td></tr>
+    </table>
+  </div>
+  <div class="sem">
+    <div class="sh"><span class="sn so">SEM 19-20</span><span class="st">Smart Money y Dinero Institucional</span></div>
+    <p class="sob sob3">Como operan los grandes capitales y como seguir su dinero en lugar de pelearte contra ellos.</p>
+    <table class="dt">
+      <tr><td class="td">2 semanas</td><td class="tc"><p class="at">Smart money concept — Order blocks y liquidez</p><a href="https://www.youtube.com/@RaynerTeo" target="_blank" class="al">Rayner Teo: "smart money concept" →</a></td></tr>
+    </table>
+  </div>
+  <div class="sem">
+    <div class="sh"><span class="sn so">SEM 21-22</span><span class="st">Patrones Armonicos</span></div>
+    <p class="sob sob3">Patrones geometricos avanzados basados en Fibonacci. Alta precision cuando se confirman correctamente.</p>
+    <table class="dt">
+      <tr><td class="td">2 semanas</td><td class="tc"><a href="https://www.youtube.com/@RaynerTeo" target="_blank" class="al">Rayner Teo: "harmonic patterns trading" →</a><a href="https://www.investopedia.com" target="_blank" class="al">Investopedia: "harmonic patterns" →</a></td></tr>
+    </table>
+  </div>
+  <div class="sem">
+    <div class="sh"><span class="sn so">SEM 23-24</span><span class="st">Ondas de Elliott</span></div>
+    <p class="sob sob3">La teoria que describe el movimiento del mercado en ciclos. Avanzado pero muy poderoso una vez dominado.</p>
+    <table class="dt">
+      <tr><td class="td">2 semanas</td><td class="tc"><a href="https://www.youtube.com/@RaynerTeo" target="_blank" class="al">Rayner Teo: "elliott wave theory" →</a><a href="https://www.investopedia.com" target="_blank" class="al">Investopedia: "elliott wave" →</a></td></tr>
+    </table>
+  </div>
+</div>
+</div>
+
+<!-- ETAPA 4 -->
+<div class="eb e4" style="margin-top:20px"><h2 style="color:var(--gold)">ETAPA 4 — Cuenta Demo con Disciplina Real</h2><p>Todo lo teorico se convierte en habilidad real. Las reglas son exactamente las mismas que con dinero real. Sin excepciones.</p><div class="emeta"><span class="etag">Meses 5 a 8</span><span class="etag">Diario obligatorio</span><span class="etag">Paralelo al tecnico avanzado</span></div></div>
+
+<div class="mes">
+<div class="mh mh4" onclick="this.closest('.mes').classList.toggle('open')"><span class="mn">5-8</span><div class="mi"><h2>Meses 5 a 8 — Cuenta Demo</h2><p>Operativa simulada con rigor total y evaluacion semanal</p></div><span class="tog">▾</span></div>
+<div class="mb">
+  <div class="sem">
+    <div class="sh"><span class="sn sgold">REGLAS</span><span class="st">Obligatorias — Sin excepcion alguna</span></div>
+    <p class="sob sob4">Usar la demo sin disciplina es el error que destruye los habitos antes de empezar con dinero real.</p>
+    <table class="dt">
+      <tr><td class="td">Capital</td><td class="tc"><div class="aej">Usa el mismo capital demo que tendrias en la realidad. Si tendrias 1.000 USD usa 1.000 en demo. No uses 100.000 ficticio, no refleja la realidad emocional.</div></td></tr>
+      <tr><td class="td">Riesgo</td><td class="tc"><div class="aej">Regla del 1-2% por operacion siempre. Stop loss en el 100% de las operaciones. Relacion riesgo/recompensa minimo 1:2. Sin excepciones.</div></td></tr>
+      <tr><td class="td">Registro</td><td class="tc"><div class="aej">Cada operacion va al diario: fecha, activo, por que entraste, entrada, stop loss, take profit, resultado, que salio bien, que salio mal, que harias diferente. Revision todos los domingos.</div></td></tr>
+      <tr><td class="td">Plataformas</td><td class="tc"><a href="https://www.tradingview.com" target="_blank" class="al">TradingView — Analisis →</a><a href="https://www.metatrader5.com" target="_blank" class="al">MetaTrader 5 — Operativa →</a><a href="https://www.etoro.com" target="_blank" class="al">eToro — Social →</a></td></tr>
+      <tr><td class="td">Senal OK</td><td class="tc"><p class="ad2">2 meses consecutivos con resultado neto positivo, stop loss respetado siempre y diario completo = listo para dinero real minimo.</p></td></tr>
+    </table>
+  </div>
+</div>
+</div>
+
+<!-- ETAPA 5 -->
+<div class="eb e5" style="margin-top:20px"><h2 style="color:var(--pur)">ETAPA 5 — Dinero Real Minimo</h2><p>La presion emocional del dinero real es diferente a la demo. Esta etapa existe para aprender a manejar esa presion con el minimo riesgo.</p><div class="emeta"><span class="etag">Meses 8 a 12</span><span class="etag">Capital reducido</span><span class="etag">Mismo sistema que en demo</span></div></div>
+
+<div class="mes">
+<div class="mh mh5" onclick="this.closest('.mes').classList.toggle('open')"><span class="mn">8-12</span><div class="mi"><h2>Meses 8 a 12 — Primeras Operaciones Reales</h2><p>Capital minimo, maximo aprendizaje, riesgo controlado</p></div><span class="tog">▾</span></div>
+<div class="mb">
+  <div class="sem">
+    <div class="sh"><span class="sn spur">REGLAS</span><span class="st">Para el paso a dinero real</span></div>
+    <p class="sob sob5">El objetivo no es ganar dinero. Es aprender a mantener la disciplina bajo presion emocional real.</p>
+    <table class="dt">
+      <tr><td class="td">Capital</td><td class="tc"><div class="aej">Solo el dinero que puedas perder completamente sin que afecte tu vida. Para la mayoria: entre 200 y 500 USD para empezar. No mas de eso.</div></td></tr>
+      <tr><td class="td">Sistema</td><td class="tc"><p class="ad2">El mismo sistema exacto que usaste en demo. No cambies nada "porque ahora es real". La consistencia es la clave.</p></td></tr>
+      <tr><td class="td">Brokers</td><td class="tc"><a href="https://www.etoro.com" target="_blank" class="al">eToro →</a><a href="https://www.xtb.com" target="_blank" class="al">XTB →</a><a href="https://www.degiro.es" target="_blank" class="al">DEGIRO →</a></td></tr>
+      <tr><td class="td">Senal OK</td><td class="tc"><p class="ad2">Un ano de resultados documentados con el mismo sistema = listo para escalar capital progresivamente.</p></td></tr>
+    </table>
+  </div>
+</div>
+</div>
+
+<!-- ETAPA 6 -->
+<div class="eb e6" style="margin-top:20px"><h2 style="color:var(--pink)">ETAPA 6 — Especializacion, Escala y Trader Profesional</h2><p>Elegir tu mercado definitivo, perfeccionar tu ventaja, escalar capital y construir el trading como fuente de ingresos real.</p><div class="emeta"><span class="etag">Ano 2 en adelante</span><span class="etag">Capital real creciente</span><span class="etag">Sistema optimizado</span></div></div>
+
+<div class="mes">
+<div class="mh mh6" onclick="this.closest('.mes').classList.toggle('open')"><span class="mn">2+</span><div class="mi"><h2>Ano 2 en adelante — Trader Profesional</h2><p>Especializacion, optimizacion y escala sostenida</p></div><span class="tog">▾</span></div>
+<div class="mb">
+  <div class="sem">
+    <div class="sh"><span class="sn spink">ESTILOS</span><span class="st">Elegir tu especialidad segun tu perfil</span></div>
+    <p class="sob sob6">No hay un mercado mejor que otro. Hay un mercado mejor para cada perfil. Lo sabras despues de la experiencia acumulada.</p>
+    <table class="dt">
+      <tr><td class="td">Swing</td><td class="tc"><p class="at">Swing Trading — El ideal para quien trabaja</p><p class="ad">Operaciones de 2 dias a varias semanas. 30-60 min diarios. Bajo estres. Tu perfil actual.</p><a href="https://www.youtube.com/@RaynerTeo" target="_blank" class="al">Rayner Teo: "swing trading" →</a></td></tr>
+      <tr><td class="td">Position</td><td class="tc"><p class="at">Position Trading — El mas tranquilo</p><p class="ad">Operaciones de semanas a meses. Muy cerca de la inversion. Menos tiempo, mas paciencia.</p><a href="https://www.youtube.com/@AdamKhoo" target="_blank" class="al">Adam Khoo: "position trading" →</a></td></tr>
+      <tr><td class="td">Day</td><td class="tc"><p class="at">Day Trading — Solo con experiencia solida</p><p class="ad">Operaciones intradiarias. Horas frente a la pantalla. Alto estres. Solo en etapas avanzadas.</p><a href="https://www.youtube.com/@TheChartGuys" target="_blank" class="al">TheChartGuys →</a></td></tr>
+      <tr><td class="td">Recursos</td><td class="tc"><a href="https://www.youtube.com/@RaynerTeo" target="_blank" class="al">Rayner Teo avanzado →</a><a href="https://www.youtube.com/@WarriorTrading" target="_blank" class="al">Warrior Trading →</a><a href="https://www.interactivebrokers.com" target="_blank" class="al">Interactive Brokers →</a></td></tr>
+    </table>
+  </div>
+</div>
+</div>
+</section>
+<!-- NIVEL AVANZADO -->
+<section class="sec" id="avanzado">
+<p class="slabel sl5">06 — Nivel Avanzado · Recursos para Etapas 3 en adelante</p>
+<div class="cgrid">
+  <div class="card"><div class="bdg bpur">Herramienta</div><h3>TradingView Replay</h3><p>Funcion de backtesting visual. Testea tu sistema en datos historicos sin riesgo antes de operarlo en vivo.</p><a href="https://www.tradingview.com" target="_blank" class="cl lpur">TradingView →</a></div>
+  <div class="card"><div class="bdg bpur">Diario avanzado</div><h3>Edgewonk</h3><p>El mejor software de diario de trading. Analiza tu winrate, ratio y errores automaticamente.</p><a href="https://edgewonk.com" target="_blank" class="cl lpur">Ir →</a></div>
+  <div class="card"><div class="bdg bpur">Screener</div><h3>Finviz</h3><p>Screener de acciones para encontrar las mejores oportunidades segun tus criterios tecnicos y fundamentales.</p><a href="https://finviz.com" target="_blank" class="cl lpur">Ir →</a></div>
+  <div class="card"><div class="bdg bpur">Analisis</div><h3>Seeking Alpha</h3><p>La plataforma de analisis financiero mas importante del mundo. Para cuando tu ingles mejore.</p><a href="https://seekingalpha.com" target="_blank" class="cl lpur">Ir →</a></div>
+  <div class="card"><div class="bdg bpur">Datos macro</div><h3>FRED Economic Data</h3><p>Datos macroeconomicos de la Reserva Federal. Tasas, inflacion, empleo. Para el analisis macro avanzado.</p><a href="https://fred.stlouisfed.org" target="_blank" class="cl lpur">Ir →</a></div>
+  <div class="card"><div class="bdg bpur">Opciones</div><h3>Options Alpha</h3><p>Para cuando llegues al nivel de opciones. El mejor recurso gratuito sobre opciones financieras.</p><a href="https://optionsalpha.com" target="_blank" class="cl lpur">Ir →</a></div>
+</div>
+</section>
+
+<!-- LIBROS -->
+<section class="sec" id="libros">
+<p class="slabel sl6">07 — Libros · A Tu Ritmo, Sin Presion</p>
+<div class="lw">
+  <div class="lh"><span>#</span><span>Libro y por que leerlo</span><span>Cuando</span><span>Paginas</span></div>
+  <div class="lr"><span class="ln">1</span><div><p class="lt">El Hombre Mas Rico de Babilonia</p><p class="lau">George S. Clason</p><p class="lp">Lee como cuentos. La mejor base mental sobre el dinero antes de empezar a invertirlo.</p></div><span class="lcn" style="color:var(--g)">Mes 1</span><span class="lpg">~200</span></div>
+  <div class="lr"><span class="ln">2</span><div><p class="lt">Reminiscencias de un Operador de Bolsa</p><p class="lau">Edwin Lefevre</p><p class="lp">Lee como novela. Historia real de Jesse Livermore. El mas atrapante sobre trading que existe.</p></div><span class="lcn" style="color:var(--g)">Mes 1-2</span><span class="lpg">~320</span></div>
+  <div class="lr"><span class="ln">3</span><div><p class="lt">Padre Rico, Padre Pobre</p><p class="lau">Robert Kiyosaki</p><p class="lp">Narrativa directa y contundente. Cambia tu mentalidad sobre el dinero desde la raiz.</p></div><span class="lcn" style="color:var(--bl)">Mes 2</span><span class="lpg">~280</span></div>
+  <div class="lr"><span class="ln">4</span><div><p class="lt">El Trader Disciplinado</p><p class="lau">Mark Douglas</p><p class="lp">La biblia de la psicologia del trading. Escritura directa. Te hace pensar "esto me pasa a mi".</p></div><span class="lcn" style="color:var(--bl)">Mes 3</span><span class="lpg">~240</span></div>
+  <div class="lr"><span class="ln">5</span><div><p class="lt">Como Gane 2.000.000 en la Bolsa</p><p class="lau">Nicolas Darvas</p><p class="lp">Un bailarin que aprendio solo y triunfo. Muy inspirador y muy entretenido. Historia real.</p></div><span class="lcn" style="color:var(--o)">Mes 4</span><span class="lpg">~200</span></div>
+  <div class="lr"><span class="ln">6</span><div><p class="lt">Trading en la Zona</p><p class="lau">Mark Douglas</p><p class="lp">El mas profundo sobre mentalidad del trader. Como entrar en el estado mental optimo para operar.</p></div><span class="lcn" style="color:var(--o)">Mes 5-6</span><span class="lpg">~240</span></div>
+  <div class="lr"><span class="ln">7</span><div><p class="lt">El Inversor Inteligente</p><p class="lau">Benjamin Graham</p><p class="lp">El mejor libro sobre inversion segun Warren Buffett. Para cuando tengas base solida. Denso pero brillante.</p></div><span class="lcn" style="color:var(--gold)">Mes 7+</span><span class="lpg">~600</span></div>
+  <div class="lr"><span class="ln">8</span><div><p class="lt">Market Wizards</p><p class="lau">Jack D. Schwager</p><p class="lp">Entrevistas a los mejores traders del mundo. Cada uno con su sistema y filosofia. Muy inspirador.</p></div><span class="lcn" style="color:var(--gold)">Mes 8+</span><span class="lpg">~420</span></div>
+  <div class="lr"><span class="ln">9</span><div><p class="lt">Analisis Tecnico de los Mercados Financieros</p><p class="lau">John Murphy</p><p class="lp">La referencia tecnica mas completa que existe. Densa pero imprescindible para nivel avanzado.</p></div><span class="lcn" style="color:var(--pur)">Mes 9+</span><span class="lpg">~560</span></div>
+  <div class="lr"><span class="ln">10</span><div><p class="lt">Flash Boys</p><p class="lau">Michael Lewis</p><p class="lp">Expone como funciona Wall Street por dentro. Entender el juego real detras de los mercados.</p></div><span class="lcn" style="color:var(--pur)">Cuando quieras</span><span class="lpg">~300</span></div>
+</div>
+</section>
+
+<!-- ERRORES -->
+<section class="sec" id="errores">
+<p class="slabel sl6">08 — Los 10 Errores que Destruyen Traders</p>
+<div class="egrid">
+  <div class="ec"><h3>01 — Operar sin stop loss</h3><p class="edesc">Una operacion en contra sin stop se convierte en una perdida catastrofica. "Va a volver" es la frase mas cara del trading.</p><p class="efix">Antidoto: Stop loss obligatorio en el 100% de las operaciones. Sin excepciones.</p></div>
+  <div class="ec"><h3>02 — Arriesgar demasiado por operacion</h3><p class="edesc">Con 3 operaciones malas seguidas al 20% de riesgo, perdiste el 60% de tu cuenta. Es matematicamente destructivo.</p><p class="efix">Antidoto: Nunca mas del 1-2% del capital total por operacion.</p></div>
+  <div class="ec"><h3>03 — Revenge Trading</h3><p class="edesc">Perder una operacion, frustrarse y abrir otra inmediatamente para "recuperar". Se pierde mas y con peor criterio.</p><p class="efix">Antidoto: Regla estricta de no operar 24 horas despues de una perdida significativa.</p></div>
+  <div class="ec"><h3>04 — Operar sin plan previo</h3><p class="edesc">Entrar "por intuicion" sin saber donde salir. Las decisiones emocionales en tiempo real siempre son las peores.</p><p class="efix">Antidoto: Antes de cada operacion escribe: por que entras, stop loss y take profit.</p></div>
+  <div class="ec"><h3>05 — Saltear la cuenta demo</h3><p class="edesc">La demo sin disciplina forma habitos malos que luego se trasladan a dinero real con consecuencias graves.</p><p class="efix">Antidoto: Tratar la demo exactamente igual que dinero real. Mismo rigor, mismo registro.</p></div>
+  <div class="ec"><h3>06 — Buscar el sistema magico</h3><p class="edesc">Saltar de estrategia en estrategia buscando el sistema perfecto. Ninguno funciona sin disciplina ni gestion del riesgo.</p><p class="efix">Antidoto: Elegir un sistema, testearlo durante minimo 100 operaciones antes de cambiar.</p></div>
+  <div class="ec"><h3>07 — Sobreoperar</h3><p class="edesc">Abrir demasiadas operaciones por aburrimiento o por querer recuperar. Las comisiones y errores se acumulan.</p><p class="efix">Antidoto: Definir un maximo de operaciones por semana y respetarlo.</p></div>
+  <div class="ec"><h3>08 — No llevar diario</h3><p class="edesc">Sin registro escrito es imposible identificar patrones de errores. Se repiten los mismos errores indefinidamente.</p><p class="efix">Antidoto: Registrar cada operacion y revisar el diario todos los domingos sin excepcion.</p></div>
+  <div class="ec"><h3>09 — Escalar demasiado rapido</h3><p class="edesc">Aumentar el capital antes de tener resultados consistentes documentados. La suerte no es un sistema.</p><p class="efix">Antidoto: Solo aumentar capital cuando tengas minimo 6 meses de resultados positivos documentados.</p></div>
+  <div class="ec"><h3>10 — Confundir una racha con habilidad</h3><p class="edesc">Tres operaciones ganadoras seguidas no significan que dominas el trading. La estadistica pide mas muestra.</p><p class="efix">Antidoto: Evaluar resultados con minimo 100 operaciones. No con 5 ni con 10.</p></div>
+</div>
+</section>
+<!-- RUTINA Y REGLAS -->
+<section class="sec" id="rutina">
+<p class="slabel sl7">09 — Rutina Diaria y Reglas del Sistema</p>
+
+<p class="sec-sub" style="color:var(--teal)">RUTINA DIARIA</p>
+<div class="rgrid" style="margin-bottom:20px">
+  <div class="rc"><p class="rt">10'</p><p class="rl">Noticias</p><p class="rd">Revisar Investing.com. Que esta pasando en los mercados hoy.</p></div>
+  <div class="rc"><p class="rt">30'</p><p class="rl">Estudio</p><p class="rd">El video o lectura que corresponde segun la semana del plan.</p></div>
+  <div class="rc"><p class="rt">20'</p><p class="rl">Graficos</p><p class="rd">Analizar 2-3 graficos en TradingView aplicando lo aprendido.</p></div>
+  <div class="rc"><p class="rt">5'</p><p class="rl">Diario</p><p class="rd">Anotar lo que viste, aprendiste u operaste en el dia.</p></div>
+  <div class="rc"><p class="rt">Dom</p><p class="rl">Revision semanal</p><p class="rd">30 min. Revisar el diario completo y planificar la semana siguiente.</p></div>
+</div>
+
+<p class="sec-sub" style="color:var(--teal)">REGLAS INQUEBRANTABLES</p>
+<div class="regla"><span class="ri">⚡</span><div class="rb"><h3>Regla 1 — Stop loss siempre</h3><p>El 100% de las operaciones tienen stop loss definido antes de entrar. Sin excepcion. Sin importar cuanto "convencido" estes de que va a subir.</p></div></div>
+<div class="regla"><span class="ri">💰</span><div class="rb"><h3>Regla 2 — Maximo 1-2% de riesgo por operacion</h3><p>Nunca mas del 2% del capital total en una sola operacion. Esto permite sobrevivir rachas largas de perdidas sin destruir la cuenta.</p></div></div>
+<div class="regla"><span class="ri">📋</span><div class="rb"><h3>Regla 3 — Plan antes de entrar</h3><p>Antes de cada operacion escribir: por que entro, donde esta el stop loss, donde esta el take profit y cuanto estoy arriesgando. Si no podes escribirlo, no entres.</p></div></div>
+<div class="regla"><span class="ri">📓</span><div class="rb"><h3>Regla 4 — Diario de trading obligatorio</h3><p>Cada operacion registrada. Revision dominical obligatoria. Sin registro no hay aprendizaje real. Los patrones de error solo se ven cuando estan escritos.</p></div></div>
+<div class="regla"><span class="ri">🚫</span><div class="rb"><h3>Regla 5 — No operar 24h despues de una perdida grande</h3><p>El revenge trading es el error mas destructivo. Una perdida activa el impulso de recuperar inmediatamente. Ese impulso lleva a las peores decisiones.</p></div></div>
+<div class="regla"><span class="ri">🧘</span><div class="rb"><h3>Regla 6 — El ritmo lo marcas vos</h3><p>Este plan no tiene fecha de vencimiento. Tiene estandares de calidad. Nunca avances a la etapa siguiente si no podes explicar con tus propias palabras lo que aprendiste en la actual. Cuando la facultad arranque, vuelves y ajustamos el plan juntos sin perder nada de lo construido.</p></div></div>
+
+</section>
+
+<footer>
+  <p>Guia Definitiva de Trading · Tu camino de cero a trader profesional</p>
+  <p style="margin-top:8px;color:#444">Cuando arranque la facultad, vuelves y ajustamos el plan sin perder nada de lo construido.</p>
+</footer>
+
+</div>
+<script>
+document.querySelectorAll('.mh').forEach(h=>{
+  h.addEventListener('click',()=>h.closest('.mes').classList.toggle('open'));
+});
+</script>
+</body>
+</html>
